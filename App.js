@@ -1,7 +1,17 @@
 import HomeScreen from './src/screens/HomeScreen';
+import AddEditScreen from './src/screens/AddEditScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <HomeScreen />
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home" screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="AddEdit" component={AddEditScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
