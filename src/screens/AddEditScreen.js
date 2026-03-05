@@ -4,45 +4,38 @@ import styles from '../styles/addEditScreen.styles.js';
 import buttonStyles from '../styles/button.styles.js';
 import Button from '../components/Button.js';
 import addPerson from '../services/add.js';
+import editPerson from '../services/edit.js';
 
-export default function AddEditScreen({ navigation }) {
+export default function AddEditScreen({ navigation, route }) {
     const [firstname, setFirstname] = useState('');
     const [lastname, setLastname] = useState('');
     const [email, setEmail] = useState('');
 
+    const person = route.params?.person;
+
     const handleAdd = () => {
+        if(!firstname || !lastname || !email) {
+            alert('Please fill all fields of the form');
+            return;
+        }
         addPerson({ firstname, lastname, email });
         navigation.goBack();
     };
 
+    const handleEdit = () => {
+        editPerson(person.id, { firstname, lastname, email });
+        navigation.goBack();
+    }
+
     return (
-        <View>
-            <Text style={styles.title}>Add Person</Text>
-            <Text style={styles.text}> Add a new person to the list </Text>
-            <Text style={{ margin: 10 }}> Add the firstname of the new Person:</Text>
-            <TextInput
-                style={styles.input}
-                placeholder="First Name"
-                value={firstname}
-                onChangeText={text => setFirstname(text)}
-            />
-            <Text style={{ margin: 10 }}> Add the lastname of the new Person:</Text>
-            <TextInput 
-                style={styles.input} 
-                placeholder="Last Name" 
-                value={lastname}
-                onChangeText={text => setLastname(text)}
-            />
-            <Text style={{ margin: 10 }}> Add the email of the new Person:</Text>
-            <TextInput 
-                style={styles.input} 
-                placeholder="Email" 
-                value={email}
-                onChangeText={text => setEmail(text)}
-            />
+        <View style={styles.container}>
+            <Text style={styles.title}>{person ? 'Edit Person' : 'Add Person'}</Text>
+            <TextInput style={styles.input} placeholder="First Name" value={firstname} onChangeText={setFirstname} />
+            <TextInput style={styles.input} placeholder="Last Name" value={lastname} onChangeText={setLastname} />
+            <TextInput style={styles.input} placeholder="Email" value={email} onChangeText={setEmail} />
             <View style={buttonStyles.buttonContainer}>
-                <Button title="Add" onPress={handleAdd} backgroundColor={"#79b477"} />
-                <Button title="Close" onPress={() => navigation.goBack()} backgroundColor={"#f07d7d"} />
+                <Button title={person ? 'Save Person' : 'Add Person'} onPress={person ? handleEdit : handleAdd} backgroundColor={"#79b477"} />
+                <Button title="Close Form" onPress={() => navigation.goBack()} backgroundColor={"#f07d7d"} />
             </View>
         </View>
     );
