@@ -4,10 +4,18 @@ const buttonStyles = StyleSheet.create({
     button: {
         alignItems: "center",
         justifyContent: "center",
-        borderRadius: 5,
-        width: 100,
+        borderRadius: 10,
+        width: 120,
         height: 50,
         gap: 10,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
     },
     buttonContainer: {
         marginBottom: 40,
