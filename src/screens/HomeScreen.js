@@ -18,30 +18,33 @@ export default function HomeScreen({ navigation }) {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>People List</Text>
-            <View style={styles.listContainer}>
-                <FlatList
-                    data={person}
-                    keyExtractor={(item) => item.id.toString()}
-                    renderItem={({ item }) => (
-                        <>
-                            <View style={styles.textContainer}>
-                                <Text style={styles.text}>{item.firstname} {item.lastname}</Text>
-                                <Text style={styles.text}>{item.email}</Text>
-                                <View style={buttonStyles.buttonContainer}>
-                                    <Button
-                                        title="Delete Person" onPress={() => {
-                                            Alert.alert("Delete Person", "Are you sure you want to delete this person?",
-                                                [{ text: "Cancel" },
-                                                { text: "Delete", onPress: () => deletePerson(item.id) }])
-                                        }}
-                                        backgroundColor={"#f07d7d"} />
-                                    <Button title="Edit Person" onPress={() => navigation.navigate('AddEdit', { person: item })} backgroundColor={"#b3b477"} />
+            { person.length > 0
+              ?  <View style={styles.listContainer}>
+                    <FlatList
+                        data={person}
+                        keyExtractor={(item) => item.id.toString()}
+                        renderItem={({ item }) => (
+                            <>
+                                <View style={styles.textContainer}>
+                                    <Text style={styles.text}>{item.firstname} {item.lastname}</Text>
+                                    <Text style={styles.text}>{item.email}</Text>
+                                    <View style={buttonStyles.buttonContainer}>
+                                        <Button
+                                            title="Delete Person" onPress={() => {
+                                                Alert.alert("Delete Person", "Are you sure you want to delete this person?",
+                                                    [{ text: "Cancel" },
+                                                    { text: "Delete", onPress: () => deletePerson(item.id) }])
+                                            }}
+                                            backgroundColor={"#f07d7d"} />
+                                        <Button title="Edit Person" onPress={() => navigation.navigate('AddEdit', { person: item })} backgroundColor={"#b3b477"} />
+                                    </View>
                                 </View>
-                            </View>
-                        </>
-                    )}
-                />
-            </View>
+                            </>
+                        )}
+                    />
+                </View>
+                : <Text style={{flex: 1, justifyContent: "center", alignItems: "center"}}>Nenhuma Pessoa Listada</Text>
+            }
             <View style={buttonStyles.buttonContainer}>
                 <View>
                     <Button title="Add Person" onPress={() => navigation.navigate('AddEdit')} backgroundColor={"#79b477"} />
