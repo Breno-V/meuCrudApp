@@ -6,20 +6,7 @@ import buttonStyles from '../styles/button.styles';
 import deletePerson from '../services/delete.js';
 
 export default function HomeScreen({ navigation }) {
-    const [person, setPerson] = useState([
-        {
-            id: 1,
-            firstname: "John",
-            lastname: "Doe",
-            email: "JohnDoe@example.com"
-        },
-        {
-            id: 2,
-            firstname: "Jane",
-            lastname: "Smith",
-            email: "JaneSmith@example.com"
-        }
-    ]);
+    const [person, setPerson] = useState([]);
 
     // useEffect(() => {
     //     fetch('http://localhost:3000/people')
