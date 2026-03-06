@@ -1,4 +1,3 @@
-
 import { View, Text, FlatList, Alert } from 'react-native';
 import { useEffect, useState, useCallback } from 'react';
 import { useFocusEffect } from '@react-navigation/native';
@@ -10,6 +9,8 @@ import { API_URL } from '../config/api.js';
 
 export default function HomeScreen({ navigation }) {
     const [person, setPerson] = useState([]);
+    // O useEffect foi substituido pelo useFocusEffect para atualizar a lista toda vez que haver uma navegação entre telas, ou seja, quando a tela for focada. 
+    // O useEffect só atualizava a lista quando a tela era carregada pela primeira vez.
     useFocusEffect(
         useCallback(() =>{ 
                 refreshList() 
