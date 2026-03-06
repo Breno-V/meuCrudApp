@@ -1,19 +1,24 @@
+
 import { View, Text, FlatList, Alert } from 'react-native';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
+import { useFocusEffect } from '@react-navigation/native';
 import Button from '../components/Button';
 import styles from '../styles/styles';
 import buttonStyles from '../styles/button.styles';
 import deletePerson from '../services/delete.js';
+import { API_URL } from '../config/api.js';
 
 export default function HomeScreen({ navigation }) {
     const [person, setPerson] = useState([]);
-
-    useEffect(() => {
-        refreshList();
-    }, []);
+    useFocusEffect(
+        useCallback(() =>{ 
+                refreshList() 
+            }
+        ,[])
+    );
 
     async function refreshList() {
-        await fetch(`https://unmingled-vincent-unsecured.ngrok-free.dev/people`)
+        await fetch(`${API_URL}/people`)
             .then((response) => response.json())
             .then((data) => setPerson(data))
             .catch((error) => console.error(error));
