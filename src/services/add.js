@@ -1,5 +1,5 @@
 export default async function addPerson(person) {
-    return fetch(`http://localhost:3000/people`, {
+    return fetch(`https://unmingled-vincent-unsecured.ngrok-free.dev/people`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
