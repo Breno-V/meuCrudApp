@@ -1,6 +1,8 @@
+import { API_URL } from "../config/api.js"
+
 export default async function deletePerson(id) {
     return (
-        fetch(`https://unmingled-vincent-unsecured.ngrok-free.dev/people/${id}`, {
+        fetch(`${API_URL}/people/${id}`, {
         method: 'DELETE',
     }))
 }
