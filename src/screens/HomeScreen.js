@@ -8,18 +8,22 @@ import deletePerson from '../services/delete.js';
 export default function HomeScreen({ navigation }) {
     const [person, setPerson] = useState([]);
 
-    // useEffect(() => {
-    //     fetch('http://localhost:3000/people')
-    //         .then((response) => response.json())
-    //         .then((data) => setPerson(data))
-    //         .catch((error) => console.error(error));
-    // }, []);
+    useEffect(() => {
+        refreshList();
+    }, []);
+
+    async function refreshList() {
+        await fetch(`https://unmingled-vincent-unsecured.ngrok-free.dev/people`)
+            .then((response) => response.json())
+            .then((data) => setPerson(data))
+            .catch((error) => console.error(error));
+    }
 
     return (
         <View style={styles.container}>
             <Text style={styles.title}>People List</Text>
-            { person.length > 0
-              ?  <View style={styles.listContainer}>
+            {person.length > 0
+                ? <View style={styles.listContainer}>
                     <FlatList
                         data={person}
                         keyExtractor={(item) => item.id.toString()}
@@ -33,7 +37,11 @@ export default function HomeScreen({ navigation }) {
                                             title="Delete Person" onPress={() => {
                                                 Alert.alert("Delete Person", "Are you sure you want to delete this person?",
                                                     [{ text: "Cancel" },
-                                                    { text: "Delete", onPress: () => deletePerson(item.id) }])
+                                                    {
+                                                        text: "Delete", onPress: () => {
+                                                            deletePerson(item.id).then(() => refreshList())
+                                                        }
+                                                    }])
                                             }}
                                             backgroundColor={"#f07d7d"} />
                                         <Button title="Edit Person" onPress={() => navigation.navigate('AddEdit', { person: item })} backgroundColor={"#b3b477"} />
@@ -43,7 +51,7 @@ export default function HomeScreen({ navigation }) {
                         )}
                     />
                 </View>
-                : <Text style={{flex: 1, justifyContent: "center", alignItems: "center"}}>Nenhuma Pessoa Listada</Text>
+                : <Text style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>Nenhuma Pessoa Listada</Text>
             }
             <View style={buttonStyles.buttonContainer}>
                 <View>

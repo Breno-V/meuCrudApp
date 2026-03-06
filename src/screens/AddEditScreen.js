@@ -19,12 +19,12 @@ export default function AddEditScreen({ navigation, route }) {
             return;
         }
         addPerson({ firstname, lastname, email });
-        navigation.goBack();
+        navigation.navigate("Home");
     };
 
     const handleEdit = () => {
         editPerson(person.id, { firstname, lastname, email });
-        navigation.goBack();
+        navigation.navigate("Home");
     }
 
     return (
@@ -35,7 +35,7 @@ export default function AddEditScreen({ navigation, route }) {
             <TextInput style={styles.input} placeholder="Email" value={email} onChangeText={setEmail} />
             <View style={buttonStyles.buttonContainer}>
                 <Button title={person ? 'Save Person' : 'Add Person'} onPress={person ? handleEdit : handleAdd} backgroundColor={"#79b477"} />
-                <Button title="Close Form" onPress={() => navigation.goBack()} backgroundColor={"#f07d7d"} />
+                <Button title="Close Form" onPress={() => navigation.navigate("Home")} backgroundColor={"#f07d7d"} />
             </View>
         </View>
     );
