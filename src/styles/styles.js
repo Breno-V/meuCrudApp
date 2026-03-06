@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     },
     listContainer: {
         width: '90%', 
-        maxHeight: '70%',
+        maxHeight: '60%',
         padding: 20,
         margin: 20,
         marginBottom: 50,
