@@ -4,6 +4,7 @@
 node_modules/
 
 src/config/*
+src/ngrok-v3-stable-windows-amd64/*
 
 # Expo
 .expo/
