@@ -3,7 +3,6 @@
 # dependencies
 node_modules/
 
-src/config/*
 src/ngrok-v3-stable-windows-amd64/*
 
 # Expo
@@ -35,6 +34,7 @@ yarn-error.*
 
 # local env files
 .env*.local
+.env
 
 # typescript
 *.tsbuildinfo
