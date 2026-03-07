@@ -1,11 +1,13 @@
 import { View, Text, FlatList, Alert } from 'react-native';
-import { useEffect, useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { useFocusEffect } from '@react-navigation/native';
 import Button from '../components/Button';
 import styles from '../styles/styles';
 import buttonStyles from '../styles/button.styles';
 import deletePerson from '../services/delete.js';
-import { API_URL } from '../config/api.js';
+
+//Em projetos com Expo na versão 49 ou maior, as variáveis de ambiente só conseguem ser acessadas se tiver o prefixo: "EXPO_PUBLIC_NOME_DA_VARIAVEL"
+const API_URL = process.env.EXPO_PUBLIC_API_URL;
 
 export default function HomeScreen({ navigation }) {
     const [person, setPerson] = useState([]);
