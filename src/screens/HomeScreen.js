@@ -4,7 +4,7 @@ import { useFocusEffect } from '@react-navigation/native';
 import Button from '../components/Button';
 import styles from '../styles/styles';
 import buttonStyles from '../styles/button.styles';
-import { deletePerson } from '../services/personCrud';
+import { deletePerson } from '../servers/personCrud.js';
 
 //Em projetos com Expo na versão 49 ou maior, as variáveis de ambiente só conseguem ser acessadas se tiver o prefixo: "EXPO_PUBLIC_NOME_DA_VARIAVEL"
 const API_URL = process.env.EXPO_PUBLIC_API_URL;
