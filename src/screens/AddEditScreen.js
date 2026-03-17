@@ -3,8 +3,6 @@ import { View, Text, TextInput, Alert } from 'react-native';
 import styles from '../styles/addEditScreen.styles.js';
 import buttonStyles from '../styles/button.styles.js';
 import Button from '../components/Button.js';
-import addPerson from '../services/add.js';
-import editPerson from '../services/edit.js';
 
 export default function AddEditScreen({ navigation, route }) {
     const [firstname, setFirstname] = useState('');
