@@ -7,7 +7,6 @@ const buttonStyles = StyleSheet.create({
         borderRadius: 10,
         width: 120,
         height: 50,
-        gap: 10,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -21,10 +20,14 @@ const buttonStyles = StyleSheet.create({
         marginBottom: 40,
         marginTop: 20,
         gap: 20,
-        alignItems: "center",
         justifyContent: "space-evenly",
         flexDirection: 'row',
     },
+    containerAdd: {
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center",
+    }
 });
 
 export default buttonStyles;
