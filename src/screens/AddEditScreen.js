@@ -9,6 +9,7 @@ export default function AddEditScreen({ navigation, route }) {
     const [firstname, setFirstname] = useState('');
     const [lastname, setLastname] = useState('');
     const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
 
     const person = route.params?.person;
 
@@ -18,8 +19,9 @@ export default function AddEditScreen({ navigation, route }) {
             <TextInput style={styles.input} placeholder="First Name" value={firstname} onChangeText={setFirstname} />
             <TextInput style={styles.input} placeholder="Last Name" value={lastname} onChangeText={setLastname} />
             <TextInput style={styles.input} placeholder="Email" value={email} onChangeText={setEmail} />
+            <TextInput style={styles.input} placeholder="Phone" value={phone} onChangeText={setPhone} />
             <View style={buttonStyles.buttonContainer}>
-                <Button title={person ? 'Save Person' : 'Add Person'} onPress={() => handleAddEdit({ firstname, lastname, email, route, navigation })} backgroundColor={"#79b477"} />
+                <Button title={person ? 'Save Person' : 'Add Person'} onPress={() => handleAddEdit({ firstname, lastname, email, phone, route, navigation })} backgroundColor={"#79b477"} />
                 <Button title="Close Form" onPress={() => navigation.navigate("Home")} backgroundColor={"#f07d7d"} />
             </View>
         </View>
