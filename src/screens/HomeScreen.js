@@ -53,7 +53,7 @@ export default function HomeScreen({ navigation }) {
             )} />
             <View style={buttonStyles.buttonContainer}>
                 <View style={buttonStyles.containerAdd}>
-                    <Button title="Add Person" onPress={() => navigation.navigate('AddEdit')} backgroundColor={"#79b477"} containerAdd={true}/>
+                    <Button title="Add Person" onPress={() => navigation.navigate('AddEdit')} backgroundColor={"#79b477"}/>
                 </View>
             </View>
         </View>
