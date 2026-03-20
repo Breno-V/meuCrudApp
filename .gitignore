@@ -3,7 +3,11 @@
 # dependencies
 node_modules/
 
+#Pasta Ngrok
 src/ngrok-v3-stable-windows-amd64/*
+
+#db.json
+db.json
 
 # Expo
 .expo/
