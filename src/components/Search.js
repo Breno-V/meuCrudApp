@@ -39,6 +39,7 @@ export default function Search({ data, renderItem }) {
                             data={filteredData}
                             keyExtractor={(item) => item.id.toString()}
                             renderItem={renderItem}
+                            showsVerticalScrollIndicator={false}
                         />
                     </View>
                     : <View style={styles.listContainer}>
@@ -46,6 +47,7 @@ export default function Search({ data, renderItem }) {
                             data={data}
                             keyExtractor={(item) => item.id.toString()}
                             renderItem={renderItem}
+                            showsVerticalScrollIndicator={false}
                         />
                     </View>
             }
