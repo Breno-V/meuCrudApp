@@ -1,4 +1,4 @@
-import { View, Text, FlatList, Alert } from 'react-native';
+import { View, Text, Alert } from 'react-native';
 import { useState, useCallback } from 'react';
 import { useFocusEffect } from '@react-navigation/native';
 import Button from '../components/Button';
@@ -21,7 +21,7 @@ export default function HomeScreen({ navigation }) {
     );
 
     async function refreshList() {
-        await fetch(`${API_URL}/people`)
+        await fetch(`${API_URL}/person`)
             .then((response) => response.json())
             .then((data) => setPerson(data))
             .catch((error) => console.error(error));
@@ -41,10 +41,11 @@ export default function HomeScreen({ navigation }) {
                                     [{ text: "Cancel" },
                                     {
                                         text: "Delete", onPress: () => {
-                                            deletePerson(item.id).then(() => refreshList())
+                                            deletePerson(item.id).then(() => {
+                                                refreshList()
+                                            })
                                         }
                                     }])
-                                refreshList()
                             }}
                             backgroundColor={"#f07d7d"} />
                         <Button title="Edit Person" onPress={() => navigation.navigate('AddEdit', { person: item })} backgroundColor={"#b3b477"} />
