@@ -1,0 +1,10 @@
+{
+  "people": [
+    {
+      "firstname": "john", //nome da pessoa
+      "lastname": "doe ", //sobrenome da pessoa
+      "email": "john.doe@gmail.com", //email da pessoa
+      "phone": "19920099105" //telefone da pessoa
+    }
+  ],
+}
