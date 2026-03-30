@@ -16,10 +16,10 @@ export default function AddEditScreen({ navigation, route }) {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>{person ? 'Edit Person' : 'Add Person'}</Text>
-            <TextInput style={styles.input} placeholder="First Name" value={firstname} onChangeText={setFirstname} />
-            <TextInput style={styles.input} placeholder="Last Name" value={lastname} onChangeText={setLastname} />
-            <TextInput style={styles.input} placeholder="Email" value={email} onChangeText={setEmail} />
-            <TextInput style={styles.input} placeholder="Phone" value={phone} onChangeText={setPhone} />
+            <TextInput style={styles.input} placeholder={person? person.firstname : "First Name"} value={firstname} onChangeText={setFirstname} />
+            <TextInput style={styles.input} placeholder={person? person.lastname : "Last Name"} value={lastname} onChangeText={setLastname} />
+            <TextInput style={styles.input} placeholder={person? person.email : "Email"} value={email} onChangeText={setEmail} />
+            <TextInput style={styles.input} placeholder={person? person.phone : "Phone"} value={phone} onChangeText={setPhone} />
             <View style={buttonStyles.buttonContainer}>
                 <Button title={person ? 'Save Person' : 'Add Person'} onPress={() => handleAddEdit({ firstname, lastname, email, phone, route, navigation })} backgroundColor={"#79b477"} />
                 <Button title="Close Form" onPress={() => navigation.navigate("Home")} backgroundColor={"#f07d7d"} />
