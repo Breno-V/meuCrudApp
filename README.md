@@ -11,15 +11,15 @@
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" heigth="100" width="100"/>
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ngrok/ngrok-original.svg" heigth="100" width="100"/>
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cloudflare/cloudflare-original.svg" heigth="100" width="100"/>
-          
-          
 
 ## ❗Resolução do problema
 
 Para eu chegar na resolução dos problemas, utilizei principalmente do recurso [ternário](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Conditional_operator) para fazer condicionais importantes como a troca de tela entre editar e adicionar uma pessoa, usando como condição o objeto **person** que retorna __True__ caso exista registro de uma pessoa no db.json, ou __False__. Também criei o componente **Search.js** que realiza a busca de pessoas por filtros (se digitar o nome, sobrenome, email ou o nº de telefone, retorna o card da pessoa). Além do Search.js, foi criado o **handleAddEdit.js** que contém a lógica de confirmação de adição e edição das características de uma pessoa, usando mais uma vez o recurso ternário para identificar se uma pessoa já existe ou não. Se existe, exibe um alerta mostrando os dados que foram editados/adicionados e pede para confirmar a atualização. Se confirmado, chama a operação Create ou Update que está presente no **personCrud.js**.
 
 ## 🎖️ Demonstração
-
+<div align="center">
+  <video src="https://github.com/user-attachments/assets/03aeb30b-88e7-4775-a1b6-d9a33d08315f" controls width="100"/>
+</div>
      
 ## 📂 Estrutura de pastas do projeto
 ```
