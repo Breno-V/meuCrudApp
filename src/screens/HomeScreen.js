@@ -24,11 +24,6 @@ export default function HomeScreen({ navigation }) {
         }, [])
     );
 
-    //useEfffect atualiza a lista apenas na primeira renderização da tela
-    useEffect(() => {
-        refreshList()
-    }, []);
-
     async function refreshList() {
         try {
             setLoading(true);
